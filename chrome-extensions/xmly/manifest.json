@@ -7,6 +7,6 @@
 	},
 	"content_scripts": [{
 			"js": ["jquery-2.1.1.min.js", "songs.js"],
-			"matches": ["http://www.ximalaya.com/"]
+			"matches": ["http://www.ximalaya.com/*/*"]
 		}]
 }
