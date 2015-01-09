@@ -1,0 +1,12 @@
+{
+	"manifest_version": 2,
+	"name": "xmly",
+	"version": "1.0",
+	"permissions": ["<all_urls>"],
+	"browser_action": {
+	},
+	"content_scripts": [{
+			"js": ["jquery-2.1.1.min.js", "songs.js"],
+			"matches": ["http://www.ximalaya.com/"]
+		}]
+}

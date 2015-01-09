@@ -1,16 +1,14 @@
-function songs() {
-	$('li[sound_id]').each(function() {
-		var soundId = $(this).attr('sound_id');
-		var result = $.ajax({
-			url: 'http://www.ximalaya.com/tracks/' + soundId + '.json',
-			async: false,
-			dataType: 'json'
-		});
-		var ele = $(this).children().children().first();
-		var songPath = getSongPath(result.responseText);
-		ele.attr('href', 'http://fdfs.xmcdn.com/' + songPath);
+$('li[sound_id] div a').click(function() {
+	var soundId = $(this).attr('sound_id');
+	var result = $.ajax({
+		url: 'http://www.ximalaya.com/tracks/' + soundId + '.json',
+		async: false,
+		dataType: 'json'
 	});
-}
+	var ele = $(this).children().children().first();
+	var songPath = getSongPath(result.responseText);
+	ele.attr('href', 'http://fdfs.xmcdn.com/' + songPath);
+});
 
 function getSongPath(text) {
 	var json = eval("("+text+")");
@@ -21,5 +19,3 @@ function getSongPath(text) {
 	song.path = json.play_path;
 	return song.path128!==null ? song.path128 : (song.path64!==null ? song.path64 : (song.path32!==null ? song.path32 : song.path));
 }
-
-songs();
