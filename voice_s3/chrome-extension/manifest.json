@@ -1,0 +1,12 @@
+{
+	"manifest_version": 2,
+	"name": "voice",
+	"version": "1.0",
+	"permissions": ["<all_urls>"],
+	"browser_action": {
+	},
+	"content_scripts": [{
+			"js": ["jquery-2.1.1.min.js", "voice.js"],
+			"matches": ["http://yule.dongting.com/voice/"]
+		}]
+}
