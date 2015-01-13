@@ -1,13 +1,16 @@
-$('li[sound_id] div a.playBtn').click(function() {
+$('li[sound_id] div a.playBtn').each(function() {
 	var liEle = $(this).parent().parent();
 	var soundId = liEle.attr('sound_id');
-	var result = $.ajax({
-		url: 'http://www.ximalaya.com/tracks/' + soundId + '.json',
-		async: false,
-		dataType: 'json'
+	$(this).attr('title', soundId);
+	$(this).click(function() {
+		var result = $.ajax({
+			url: 'http://www.ximalaya.com/tracks/' + soundId + '.json',
+			async: false,
+			dataType: 'json'
+		});
+		var songPath = getSongPath(result.responseText);
+		$(this).attr('href', 'http://fdfs.xmcdn.com/' + songPath);
 	});
-	var songPath = getSongPath(result.responseText);
-	$(this).attr('href', 'http://fdfs.xmcdn.com/' + songPath);
 });
 
 function getSongPath(text) {
