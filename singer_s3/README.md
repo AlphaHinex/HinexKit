@@ -5,6 +5,12 @@
 ![](iamsinger3.png)
 
 
+专题页面
+--------
+
+[http://y.qq.com/topic/iamsinger3/index.html](http://y.qq.com/topic/iamsinger3/index.html)
+
+
 python2.x 脚本
 --------------
 
