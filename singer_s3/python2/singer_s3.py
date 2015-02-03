@@ -3,7 +3,7 @@ import json
 import threading
 import sys
 
-date = '20150123'
+date = '20150130'
 path = '/Users/alphahinex/Desktop'
 margin = 30000000
 
