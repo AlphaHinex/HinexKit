@@ -19,7 +19,7 @@ class download(threading.Thread):
 
     def run(self):
         print 'prepare to download %s(%d) ...' %(self.file_name, self.sid)
-        os.system('curl -H "Host:stream19.qqmusic.qq.com" -H "Cookie:qqmusic_uin=12345678; qqmusic_key=12345678; qqmusic_fromtag=30" http://115.231.20.59:80/%d.mp3 -o %s/"%s.mp3" &' %(self.sid+margin, path, self.file_name))
+        os.system('curl -H "Host:stream19.qqmusic.qq.com" -H "Cookie:qqmusic_uin=12345678; qqmusic_key=12345678; qqmusic_fromtag=30" http://stream19.qqmusic.qq.com/%d.mp3 -o %s/"%s.mp3" &' %(self.sid+margin, path, self.file_name))
         # print 'download %s done' %self.file_name
 
 def main(args):
