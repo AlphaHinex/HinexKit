@@ -1,7 +1,6 @@
 include 'uip-common-utils'
 
 rootProject.name = 'proper'
-// rootProject.version = '4.0-SNAPSHOT'
 
 rootProject.children.each { project ->
     String fileBaseName = project.name
