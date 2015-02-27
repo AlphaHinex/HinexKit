@@ -1,3 +1,7 @@
 .DS_Store
 temp
-proper
+
+# proper
+proper/.gradle
+proper/**/build
+proper/**/*.java

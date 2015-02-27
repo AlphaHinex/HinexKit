@@ -1,0 +1,19 @@
+apply plugin: 'checkstyle'
+// apply from: new File(buildscript.sourceFile.parentFile, 'dependencies.gradle')
+
+def configDir = new File(buildscript.sourceFile.parentFile.parentFile, 'config')
+
+ext.checkstyleConfigDir = "$configDir/checkstyle"
+
+checkstyle {
+    configFile = new File(checkstyleConfigDir, "checkstyle.xml")
+    configProperties.checkstyleConfigDir = checkstyleConfigDir
+}
+
+def codeQualityTasks = tasks.matching { task ->
+    [org.gradle.api.plugins.quality.CodeNarc, org.gradle.api.plugins.quality.Checkstyle].any { it.isInstance(task) }
+}
+
+task codeQuality {
+    dependsOn codeQualityTasks
+}

@@ -1,10 +1,14 @@
 allprojects {
     apply plugin: 'java'
+    apply plugin: 'checkstyle'
+    apply plugin: 'findbugs'
     group = 'com.proper.uip'
     version = '4.0-SNAPSHOT'
 }
 
 subprojects {
+    apply from: "$rootDir/gradle/codeQuality.gradle"
+    
     dependencies {
         // compile 'org.springframework:spring-beans:3.2.0.RELEASE'
         // compile 'org.springframework:spring-context-support:3.2.0.RELEASE'
