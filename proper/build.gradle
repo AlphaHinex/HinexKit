@@ -2,22 +2,29 @@ allprojects {
     apply plugin: 'java'
     apply plugin: 'checkstyle'
     apply plugin: 'findbugs'
+    apply from: "$rootDir/gradle/codeQuality.gradle"
+    
     group = 'com.proper.uip'
     version = '4.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url 'http://mirrors.ibiblio.org/pub/mirrors/maven2'
+        }
+    }
+
+    tasks.withType(FindBugs) {
+        reports {
+            xml.enabled = false
+            html.enabled = true
+        }
+    }
 }
 
 subprojects {
-    apply from: "$rootDir/gradle/codeQuality.gradle"
-    
     dependencies {
-        // compile 'org.springframework:spring-beans:3.2.0.RELEASE'
         // compile 'org.springframework:spring-context-support:3.2.0.RELEASE'
-        // compile 'org.hibernate:hibernate-entitymanager:4.2.1.Final'
-        // compile 'javax.servlet:servlet-api:2.5'
-        // compile 'net.sf.json-lib:json-lib:2.4:jdk15@jar'
-        // compile 'org.codehaus.jackson:jackson-core-asl:1.9.11'
-        // compile 'org.codehaus.jackson:jackson-mapper-lgpl:1.9.11'
-        // compile 'commons-lang:commons-lang:2.5'
-        // compile 'commons-collections:commons-collections:3.2.1'
     }
 }

@@ -1,5 +1,5 @@
 apply plugin: 'checkstyle'
-// apply from: new File(buildscript.sourceFile.parentFile, 'dependencies.gradle')
+apply from: new File(buildscript.sourceFile.parentFile, 'dependencies.gradle')
 
 def configDir = new File(buildscript.sourceFile.parentFile.parentFile, 'config')
 

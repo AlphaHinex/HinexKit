@@ -1,0 +1,26 @@
+ext {
+    versions = [:]
+    libraries = [:]
+}
+
+versions.hibernate = '4.2.1.Final'
+
+versions.jackson = '1.9.11'
+
+versions.spring = '3.2.0.RELEASE'
+
+libraries.commons_collections = 'commons-collections:commons-collections:3.2.1'
+
+libraries.commons_lang = 'commons-lang:commons-lang:2.5'
+
+libraries.hibernate_entitymanager = "org.hibernate:hibernate-entitymanager:${versions.hibernate}"
+
+libraries.jackson_core_asl = "org.codehaus.jackson:jackson-core-asl:${versions.jackson}"
+libraries.jackson_mapper_lgpl = "org.codehaus.jackson:jackson-mapper-lgpl:${versions.jackson}"
+
+libraries.json_lib = 'net.sf.json-lib:json-lib:2.4:jdk15@jar'
+
+libraries.servlet_api = 'javax.servlet:servlet-api:2.5'
+
+libraries.spring_beans = "org.springframework:spring-beans:${versions.spring}"
+libraries.spring_core = "org.springframework:spring-core:${versions.spring}"
