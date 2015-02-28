@@ -8,18 +8,31 @@ allprojects {
     version = '4.0-SNAPSHOT'
 
     repositories {
-        mavenCentral()
-        jcenter()
         maven {
+            url 'https://repo.gradle.org/gradle/libs'
             url 'http://mirrors.ibiblio.org/pub/mirrors/maven2'
         }
+        jcenter()
+        mavenCentral()
+    }
+
+    tasks.withType(Checkstyle) {
+        exclude '**/com/proper/uip/common/**'
+        exclude '**/com/proper/uip/api/security/**'
     }
 
     tasks.withType(FindBugs) {
+        exclude '**/com/proper/uip/common/**'
+        exclude '**/com/proper/uip/api/security/**'
         reports {
             xml.enabled = false
             html.enabled = true
         }
+    }
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
     }
 }
 
