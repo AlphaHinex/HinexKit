@@ -1,5 +1,6 @@
 include 'uip-common-utils'
 include 'uip-security-api'
+include 'uip-security-common'
 
 rootProject.name = 'proper'
 

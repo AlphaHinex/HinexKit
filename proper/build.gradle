@@ -17,13 +17,11 @@ allprojects {
     }
 
     tasks.withType(Checkstyle) {
-        exclude '**/com/proper/uip/common/**'
-        exclude '**/com/proper/uip/api/security/**'
+        exclude '**/com/proper/uip/**'
     }
 
     tasks.withType(FindBugs) {
-        exclude '**/com/proper/uip/common/**'
-        exclude '**/com/proper/uip/api/security/**'
+        exclude '**/com/proper/uip/**'
         reports {
             xml.enabled = false
             html.enabled = true

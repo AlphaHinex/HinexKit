@@ -8,12 +8,21 @@ versions.hibernate = '4.2.1.Final'
 versions.jackson = '1.9.11'
 
 versions.spring = '3.2.0.RELEASE'
+versions.spring_security = '3.1.4.RELEASE'
 
 libraries.commons_collections = 'commons-collections:commons-collections:3.2.1'
 
 libraries.commons_lang = 'commons-lang:commons-lang:2.5'
 
+libraries.commons_logging = 'commons-logging:commons-logging:1.1.1'
+
+libraries.hibernate_c3p0 = "org.hibernate:hibernate-c3p0:${versions.hibernate}"
+libraries.hibernate_core = "org.hibernate:hibernate-core:${versions.hibernate}"
+libraries.hibernate_ehcache = "org.hibernate:hibernate-ehcache:${versions.hibernate}"
 libraries.hibernate_entitymanager = "org.hibernate:hibernate-entitymanager:${versions.hibernate}"
+libraries.hibernate_envers = "org.hibernate:hibernate-envers:${versions.hibernate}"
+libraries.hibernate_infinispan = "org.hibernate:hibernate-infinispan:${versions.hibernate}"
+libraries.hibernate_proxool = "org.hibernate:hibernate-proxool:${versions.hibernate}"
 
 libraries.jackson_core_asl = "org.codehaus.jackson:jackson-core-asl:${versions.jackson}"
 libraries.jackson_mapper_lgpl = "org.codehaus.jackson:jackson-mapper-lgpl:${versions.jackson}"
@@ -24,3 +33,11 @@ libraries.servlet_api = 'javax.servlet:servlet-api:2.5'
 
 libraries.spring_beans = "org.springframework:spring-beans:${versions.spring}"
 libraries.spring_core = "org.springframework:spring-core:${versions.spring}"
+libraries.spring_orm = "org.springframework:spring-orm:${versions.spring}"
+libraries.spring_security_acl = "org.springframework.security:spring-security-acl:${versions.spring_security}"
+libraries.spring_security_cas = "org.springframework.security:spring-security-cas:${versions.spring_security}"
+libraries.spring_security_config = "org.springframework.security:spring-security-config:${versions.spring_security}"
+libraries.spring_security_core = "org.springframework.security:spring-security-core:${versions.spring_security}"
+libraries.spring_security_crypto = "org.springframework.security:spring-security-crypto:${versions.spring_security}"
+libraries.spring_security_taglibs = "org.springframework.security:spring-security-taglibs:${versions.spring_security}"
+libraries.spring_security_web = "org.springframework.security:spring-security-web:${versions.spring_security}"
