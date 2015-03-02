@@ -1,9 +1,4 @@
 allprojects {
-    apply plugin: 'java'
-    apply plugin: 'checkstyle'
-    apply plugin: 'findbugs'
-    apply from: "$rootDir/gradle/codeQuality.gradle"
-    
     group = 'com.proper.uip'
     version = '4.0-SNAPSHOT'
 
@@ -15,6 +10,17 @@ allprojects {
         jcenter()
         mavenCentral()
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'checkstyle'
+    apply plugin: 'findbugs'
+    apply from: "$rootDir/gradle/codeQuality.gradle"
 
     tasks.withType(Checkstyle) {
         exclude '**/com/proper/uip/**'
@@ -31,15 +37,5 @@ allprojects {
     task sourcesJar(type: Jar, dependsOn: classes) {
         classifier = 'sources'
         from sourceSets.main.allSource
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
-}
-
-subprojects {
-    dependencies {
-        // compile 'org.springframework:spring-context-support:3.2.0.RELEASE'
     }
 }
