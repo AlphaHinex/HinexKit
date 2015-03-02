@@ -7,8 +7,11 @@ versions.hibernate = '4.2.1.Final'
 
 versions.jackson = '1.9.11'
 
+versions.slf4j = '1.6.4'
+
 versions.spring = '3.2.0.RELEASE'
 versions.spring_security = '3.1.4.RELEASE'
+
 
 libraries.commons_collections = 'commons-collections:commons-collections:3.2.1'
 
@@ -29,9 +32,21 @@ libraries.jackson_mapper_lgpl = "org.codehaus.jackson:jackson-mapper-lgpl:${vers
 
 libraries.json_lib = 'net.sf.json-lib:json-lib:2.4:jdk15@jar'
 
+libraries.jstl = 'jstl:jstl:1.2'
+
+libraries.log4j = dependencies.module('log4j:log4j:1.2.15') {
+    exclude group: 'com.sun.jdmk', module: 'jmxtools'
+    exclude group: 'javax.jms', module: 'jms'
+    exclude group: 'com.sun.jmx', module: 'jmxri'
+}
+
 libraries.servlet_api = 'javax.servlet:servlet-api:2.5'
 
+libraries.slf4j_api = "org.slf4j:slf4j-api:${versions.slf4j}"
+libraries.slf4j_simple = "org.slf4j:slf4j-simple:${versions.slf4j}"
+
 libraries.spring_beans = "org.springframework:spring-beans:${versions.spring}"
+libraries.spring_context_support = "org.springframework:spring-context-support:${versions.spring}"
 libraries.spring_core = "org.springframework:spring-core:${versions.spring}"
 libraries.spring_orm = "org.springframework:spring-orm:${versions.spring}"
 libraries.spring_security_acl = "org.springframework.security:spring-security-acl:${versions.spring_security}"
@@ -41,3 +56,6 @@ libraries.spring_security_core = "org.springframework.security:spring-security-c
 libraries.spring_security_crypto = "org.springframework.security:spring-security-crypto:${versions.spring_security}"
 libraries.spring_security_taglibs = "org.springframework.security:spring-security-taglibs:${versions.spring_security}"
 libraries.spring_security_web = "org.springframework.security:spring-security-web:${versions.spring_security}"
+libraries.spring_webmvc = "org.springframework:spring-webmvc:${versions.spring}"
+
+libraries.urlrewritefilter = 'org.tuckey:urlrewritefilter:4.0.3'

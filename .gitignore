@@ -4,4 +4,4 @@ temp
 # proper
 proper/.gradle
 proper/**/build
-proper/**/*.java
+proper/**/src
