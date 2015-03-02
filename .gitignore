@@ -1,6 +1,11 @@
 .DS_Store
 temp
 
+# eclipse
+.settings
+.project
+.classpath
+
 # proper
 proper/.gradle
 proper/**/build
