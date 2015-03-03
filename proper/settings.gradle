@@ -9,6 +9,8 @@ include 'uip-desktop-api'
 include 'uip-bpm-common'
 include 'uip-bpm'
 include 'uip-cas-captcha-common'
+include 'uip-desktop-common'
+include 'uip-desktop'
 
 rootProject.name = 'proper'
 

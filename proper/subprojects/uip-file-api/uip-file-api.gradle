@@ -1,0 +1,11 @@
+dependencies {
+    compile libraries.spring_webmvc
+    compile libraries.spring_orm
+    compile libraries.spring_context_support
+    compile libraries.hibernate_entitymanager
+    compile libraries.servlet_api
+    compile libraries.json_lib
+
+    compile project(':uip-common-utils')
+    compile project(':uip-security-api')
+}

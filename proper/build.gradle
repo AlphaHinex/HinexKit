@@ -28,11 +28,11 @@ subprojects {
     apply plugin: 'findbugs'
 
     tasks.withType(Checkstyle) {
-        exclude '**/com/proper/uip/**'
+        exclude '**/com/proper/**'
     }
 
     tasks.withType(FindBugs) {
-        exclude '**/com/proper/uip/**'
+        exclude '**/com/proper/**'
         reports {
             xml.enabled = false
             html.enabled = true
