@@ -4,6 +4,9 @@ include 'uip-security-common'
 include 'uip-security'
 include 'uip-bpm-api'
 include 'uip-message-reminding-api'
+include 'uip-message-reminding-common'
+include 'uip-desktop-api'
+include 'uip-bpm-common'
 
 rootProject.name = 'proper'
 
