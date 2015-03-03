@@ -53,6 +53,8 @@ libraries.log4j = dependencies.module('log4j:log4j:1.2.15') {
     exclude group: 'com.sun.jmx', module: 'jmxri'
 }
 
+libraries.poi = 'org.apache.poi:poi:3.7'
+
 libraries.quartz = 'org.quartz-scheduler:quartz:1.8.4'
 
 libraries.servlet_api = 'javax.servlet:servlet-api:2.5'
