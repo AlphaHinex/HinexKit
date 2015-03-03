@@ -11,6 +11,9 @@ include 'uip-bpm'
 include 'uip-cas-captcha-common'
 include 'uip-desktop-common'
 include 'uip-desktop'
+include 'uip-file-api'
+include 'uip-file-common'
+include 'uip-file'
 
 rootProject.name = 'proper'
 

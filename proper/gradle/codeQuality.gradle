@@ -1,4 +1,5 @@
 apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
 
 def configDir = new File(buildscript.sourceFile.parentFile.parentFile, 'config')
 
@@ -7,4 +8,16 @@ ext.checkstyleConfigDir = "$configDir/checkstyle"
 checkstyle {
     configFile = new File(checkstyleConfigDir, "checkstyle.xml")
     configProperties.checkstyleConfigDir = checkstyleConfigDir
+}
+
+tasks.withType(Checkstyle) {
+    exclude '**/com/proper/**'
+}
+
+tasks.withType(FindBugs) {
+    exclude '**/com/proper/**'
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
 }

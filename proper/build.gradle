@@ -22,22 +22,7 @@ subprojects {
 
     apply from: "$rootDir/gradle/dependencies.gradle"
     
-    apply plugin: 'checkstyle'
     apply from: "$rootDir/gradle/codeQuality.gradle"
-    
-    apply plugin: 'findbugs'
-
-    tasks.withType(Checkstyle) {
-        exclude '**/com/proper/**'
-    }
-
-    tasks.withType(FindBugs) {
-        exclude '**/com/proper/**'
-        reports {
-            xml.enabled = false
-            html.enabled = true
-        }
-    }
 
     task sourcesJar(type: Jar, dependsOn: classes) {
         classifier = 'sources'
