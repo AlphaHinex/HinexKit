@@ -19,9 +19,13 @@ task wrapper(type: Wrapper) {
 subprojects {
     apply plugin: 'eclipse'
     apply plugin: 'java'
+
+    apply from: "$rootDir/gradle/dependencies.gradle"
+    
     apply plugin: 'checkstyle'
-    apply plugin: 'findbugs'
     apply from: "$rootDir/gradle/codeQuality.gradle"
+    
+    apply plugin: 'findbugs'
 
     tasks.withType(Checkstyle) {
         exclude '**/com/proper/uip/**'

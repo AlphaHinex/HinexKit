@@ -1,0 +1,7 @@
+dependencies {
+    compile libraries.json_lib
+    compile libraries.servlet_api
+    compile libraries.hibernate_entitymanager
+    
+    compile project(':uip-common-utils')
+}
