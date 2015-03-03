@@ -16,6 +16,9 @@ versions.spring_security = '3.1.4.RELEASE'
 
 
 libraries.activiti_engine = "org.activiti:activiti-engine:${versions.activiti}"
+libraries.activiti_spring = "org.activiti:activiti-spring:${versions.activiti}"
+
+libraries.cglib = 'cglib:cglib:2.2'
 
 libraries.commons_collections = 'commons-collections:commons-collections:3.2.1'
 
@@ -43,6 +46,8 @@ libraries.log4j = dependencies.module('log4j:log4j:1.2.15') {
     exclude group: 'javax.jms', module: 'jms'
     exclude group: 'com.sun.jmx', module: 'jmxri'
 }
+
+libraries.quartz = 'org.quartz-scheduler:quartz:1.8.4'
 
 libraries.servlet_api = 'javax.servlet:servlet-api:2.5'
 
