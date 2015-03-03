@@ -8,6 +8,7 @@ include 'uip-message-reminding-common'
 include 'uip-desktop-api'
 include 'uip-bpm-common'
 include 'uip-bpm'
+include 'uip-cas-captcha-common'
 
 rootProject.name = 'proper'
 

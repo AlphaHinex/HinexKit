@@ -18,6 +18,8 @@ versions.spring_security = '3.1.4.RELEASE'
 libraries.activiti_engine = "org.activiti:activiti-engine:${versions.activiti}"
 libraries.activiti_spring = "org.activiti:activiti-spring:${versions.activiti}"
 
+libraries.cas_server_core = 'org.jasig.cas:cas-server-core:3.5.2'
+
 libraries.cglib = 'cglib:cglib:2.2'
 
 libraries.commons_collections = 'commons-collections:commons-collections:3.2.1'
@@ -36,6 +38,10 @@ libraries.hibernate_proxool = "org.hibernate:hibernate-proxool:${versions.hibern
 
 libraries.jackson_core_asl = "org.codehaus.jackson:jackson-core-asl:${versions.jackson}"
 libraries.jackson_mapper_lgpl = "org.codehaus.jackson:jackson-mapper-lgpl:${versions.jackson}"
+
+libraries.jcaptcha = dependencies.module('com.octo.captcha:jcaptcha:1.0') {
+    exclude group: 'com.jhlabs', module: 'imaging'
+}
 
 libraries.json_lib = 'net.sf.json-lib:json-lib:2.4:jdk15@jar'
 

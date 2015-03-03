@@ -4,8 +4,8 @@ allprojects {
 
     repositories {
         maven {
-            url 'https://repo.gradle.org/gradle/libs'
             url 'http://mirrors.ibiblio.org/pub/mirrors/maven2'
+            url 'https://repo.gradle.org/gradle/libs'
         }
         jcenter()
         mavenCentral()
