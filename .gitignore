@@ -10,3 +10,9 @@ temp
 proper/.gradle
 proper/**/build
 proper/**/src
+
+# facepp
+facepp/.gradle
+facepp/build
+facepp/bin
+facepp/lib
