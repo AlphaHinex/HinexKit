@@ -1,8 +1,16 @@
 apply plugin: 'eclipse'
+apply plugin: 'java'
 apply plugin: 'groovy'
 
+repositories {
+    maven {
+        url 'https://repo.gradle.org/gradle/libs'
+    }
+}
+
 dependencies {
-    compile ':faceppsdk_min:'
-    compile 'org.codehaus.groovy:groovy-all:2.+'
+	compile 'org.codehaus.groovy:groovy-all:2.+'
+    compile 'org.json:json:20140107'
+    compile 'org.apache.httpcomponents:httpmime:4.3.6'
     testCompile 'junit:junit:4.+'
 }
