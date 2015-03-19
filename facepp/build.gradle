@@ -1,0 +1,8 @@
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+
+dependencies {
+    compile ':faceppsdk_min:'
+    compile 'org.codehaus.groovy:groovy-all:2.+'
+    testCompile 'junit:junit:4.+'
+}
