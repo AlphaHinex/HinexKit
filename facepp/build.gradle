@@ -12,5 +12,6 @@ dependencies {
 	compile 'org.codehaus.groovy:groovy-all:2.+'
     compile 'org.json:json:20140107'
     compile 'org.apache.httpcomponents:httpmime:4.3.6'
+    testCompile 'commons-codec:commons-codec:1.5'
     testCompile 'junit:junit:4.+'
 }

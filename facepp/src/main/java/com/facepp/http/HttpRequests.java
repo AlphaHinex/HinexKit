@@ -3,6 +3,7 @@ package com.facepp.http;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.Proxy;
 import java.net.URL;
 import java.util.Date;
 
@@ -283,21 +284,28 @@ public class HttpRequests {
 		return null;
 	}
 	
+	public JSONObject request(String control, String action, PostParameters params) throws FaceppParseException {
+		return request(control, action, params, null, null);
+	}
+	
 	/**
 	 * faceplusplus.com/[control]/[action]?[params]<br />
 	 * http request timeout time is 5000ms
 	 * @param control
 	 * @param action
 	 * @param params
+	 * @param proxy
+	 * @param auth
 	 * @return a result object
 	 * @throws FaceppParseException
 	 */
-	public JSONObject request(String control, String action, PostParameters params) throws FaceppParseException {
+	public JSONObject request(String control, String action, PostParameters params, 
+			Proxy proxy, String auth) throws FaceppParseException {
 		URL url;
 		HttpURLConnection urlConn = null;
 		try {
 			url = new URL(webSite+control+"/"+action);
-			urlConn = (HttpURLConnection) url.openConnection();
+			urlConn = proxy==null ? (HttpURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection(proxy);
 	        urlConn.setRequestMethod("POST");
 	        urlConn.setConnectTimeout(httpTimeOut);
 	        urlConn.setReadTimeout(httpTimeOut);
@@ -305,6 +313,9 @@ public class HttpRequests {
 
 	        urlConn.setRequestProperty("connection", "keep-alive");
 	        urlConn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + params.boundaryString());
+	        if(auth != null) {
+	        	urlConn.setRequestProperty("Proxy-Authorization", "Basic " + auth);
+	        }
 			
 	        MultipartEntity reqEntity = params.getMultiPart();
             
