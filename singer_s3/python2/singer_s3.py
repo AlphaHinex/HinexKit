@@ -7,7 +7,7 @@ import os
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
-date = '20150320'
+date = '20150327'
 path = '/Users/alphahinex/Desktop'
 margin = 30000000
 
