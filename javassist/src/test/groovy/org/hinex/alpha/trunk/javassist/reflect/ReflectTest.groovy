@@ -1,6 +1,6 @@
 /* 
  * @author Hinex
- * @date 2015-4-13下午3:13:49
+ * @date 2015-4-13 15:13:49
  */
 
 package org.hinex.alpha.trunk.javassist.reflect;
@@ -56,35 +56,12 @@ class ReflectTest {
 		Class clz = cc.toClass(loader, null)
 		Object proxy = clz.newInstance()
 		clz.getField(FIELD1).set(proxy, VALUE1)
+		assertThat clz.getField(FIELD1).get(proxy), equalTo(VALUE1)
+		
+		println "no message from entity before\n${'-'*10}"
+		
+		println "this operation will invoke Entity's method"
 		assertThat proxy.getField1(), equalTo(VALUE1)
 	}
 	
-//	@Test
-//	public void readClass() {
-//		def fin = new BufferedInputStream(new FileInputStream(TestResource.getFile('Document.class')))
-//		ClassFile cf = new ClassFile(new DataInputStream(fin))
-//		cf.fields.each {
-//			println it
-//		}
-//	}
-//
-//	@Test
-//	public void test() {
-//		ClassPool pool = ClassPool.getDefault()
-//		CtClass cc = pool.get('org.hinex.alpha.trunk.javassist.reflect.Entity')
-//		cc.getProperties().each {
-//			println "property: $it"
-//		}
-//		cc.getFields().each {
-//			println "ctfield: $it"
-//		}
-//		Class clz = cc.toClass()
-//		Entity inst = clz.newInstance()
-//		clz.getFields().each {
-//			println "field: $it"
-//		}
-//		clz.getField('field1').set(inst, '123')
-//		println inst.getField1()
-//	}
-
 }
