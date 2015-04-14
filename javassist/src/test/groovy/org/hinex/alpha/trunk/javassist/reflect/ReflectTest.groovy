@@ -30,18 +30,18 @@ class ReflectTest {
 	
 	private CtClass cc
 	
-	private ClassLoader loader
+	private ProxyClassLoader loader
 	
 	@Before
 	public void setUp() {
 		pool = ClassPool.getDefault()
 		cc = pool.get(ENTITY)
-		loader = this.class.classLoader
+		loader = new ProxyClassLoader(this.class.classLoader)
 	}
 	
 	@Test(expected = NoSuchFieldException.class)
 	public void couldNotSetPrivateFieldValue() {
-		Class clz = loader.loadClass(ENTITY)
+		Class clz = Entity.class
 		Entity inst = clz.newInstance()
 		clz.getField(FIELD1).set(inst, VALUE1)
 	}
@@ -54,9 +54,9 @@ class ReflectTest {
 		
 		fieldInfo.setAccessFlags(AccessFlag.PUBLIC)
 		Class clz = cc.toClass(loader, null)
-		Entity inst = clz.newInstance()
-		clz.getField(FIELD1).set(inst, VALUE1)
-		assertThat inst.getField1(), equalTo(VALUE1)
+		Object proxy = clz.newInstance()
+		clz.getField(FIELD1).set(proxy, VALUE1)
+		assertThat proxy.getField1(), equalTo(VALUE1)
 	}
 	
 //	@Test
