@@ -7,14 +7,16 @@ package org.hinex.alpha.trunk.javassist.reflect;
 
 import static org.hamcrest.core.IsEqual.*
 import static org.junit.Assert.*
+
+import java.lang.reflect.Field
+import java.lang.reflect.Modifier;
+
 import javassist.ClassPool
 import javassist.CtClass
 import javassist.CtField
 import javassist.bytecode.AccessFlag
-import javassist.bytecode.ClassFile
 import javassist.bytecode.FieldInfo
 
-import org.hinex.alpha.arsenal.TestResource
 import org.junit.Before
 import org.junit.Test
 
@@ -32,22 +34,44 @@ class ReflectTest {
 	
 	private ProxyClassLoader loader
 	
+	private Class clz
+	
+	private Entity inst
+	
 	@Before
 	public void setUp() {
 		pool = ClassPool.getDefault()
 		cc = pool.get(ENTITY)
 		loader = new ProxyClassLoader(this.class.classLoader)
+		clz = Entity.class
+		inst = clz.newInstance()
 	}
 	
 	@Test(expected = NoSuchFieldException.class)
-	public void couldNotSetPrivateFieldValue() {
-		Class clz = Entity.class
-		Entity inst = clz.newInstance()
-		clz.getField(FIELD1).set(inst, VALUE1)
+	public void couldNotDirectlyGetPrivateField() {
+		clz.getField(FIELD1)
+	}
+	
+	@Test(expected = IllegalAccessException.class)
+	public void couldGetPrivateFieldButNotSetDirectly() {
+		Field field = clz.getDeclaredField(FIELD1)
+		field.set(inst, VALUE1)
 	}
 	
 	@Test
-	public void couldSetPrivateFieldAfterModifyAccessFlags() {
+	public void couldSetPrivateFieldAfterModifyAccessible() {
+		Field field = clz.getDeclaredField(FIELD1)
+		assertThat field.getModifiers(), equalTo(Modifier.PRIVATE)
+		
+		field.setAccessible(true)
+		assertThat field.getModifiers(), equalTo(Modifier.PRIVATE)
+		
+		field.set(inst, VALUE1)
+		assertThat field.get(inst), equalTo(VALUE1)
+	}
+	
+	@Test
+	public void couldSetPrivateFieldUsingProxy() {
 		CtField cf = cc.getField(FIELD1)
 		FieldInfo fieldInfo = cf.fieldInfo 
 		assertThat fieldInfo.getAccessFlags(), equalTo(AccessFlag.PRIVATE)
