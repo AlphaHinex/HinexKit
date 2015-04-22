@@ -6,13 +6,14 @@ temp
 .project
 .classpath
 
+# build related
+.gradle
+build
+bin
+libs
+
 # proper
-proper/.gradle
-proper/**/build
 proper/**/src
 
 # facepp
-facepp/.gradle
-facepp/build
-facepp/bin
 facepp/lib
