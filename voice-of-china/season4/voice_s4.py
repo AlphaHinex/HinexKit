@@ -25,20 +25,27 @@ class download(threading.Thread):
         req = urllib2.Request('http://stream19.qqmusic.qq.com/%d.mp3' %(self.sid+margin))
         req.add_header('Host', 'stream19.qqmusic.qq.com')
         req.add_header('Cookie', 'qqmusic_uin=12345678; qqmusic_key=12345678; qqmusic_fromtag=30')
-        response = urllib2.urlopen(req)
-        cl = string.atoi(response.info()['Content-Length'])
         while True:
-            data = response.read()
-            if len(data) == cl:
-                break
+            try:
+                response = urllib2.urlopen(req)
+                cl = string.atoi(response.info()['Content-Length'])
+                while True:
+                    data = response.read()
+                    if len(data) == cl:
+                        break
+                    else:
+                        print 'read %d bytes, while content length is %d, reloading %s again ...' %(len(data), cl, self.file_name)
+                
+                open('%s/%s.mp3' %(path, self.file_name), 'wb').write(data)
+                print 'download %s done.' %self.file_name
+            except Exception, e:
+                print 'exception occurs, try to reload %s again' %self.file_name
+                continue
             else:
-                print 'read %d bytes, while content length is %d, reloading %s again ...' %(len(data), cl, self.file_name)
-        
-        open('%s/%s.mp3' %(path, self.file_name), 'wb').write(data)
-        print 'download %s done.' %self.file_name
+                break
 
 def main(args):
-    req = urllib2.Request('http://y.qq.com/m/act/voice4/2%s.json' %args[1])
+    req = urllib2.Request('http://y.qq.com/m/act/voice4/%d.json' %(20 + string.atoi(args[1])))
     req.add_header('Host', 'y.qq.com')
     response = urllib2.urlopen(req)
     resp_str = response.read()
