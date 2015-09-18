@@ -9,7 +9,7 @@ reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
 # http://y.qq.com/topic/voice4/index.html
-path = '/Users/alphahinex/Desktop/voice4/20150814'
+path = '/Users/alphahinex/Desktop/voice4/20150911'
 margin = 30000000
 
 class download(threading.Thread):
