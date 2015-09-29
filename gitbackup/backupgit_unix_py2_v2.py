@@ -22,6 +22,6 @@ for folder in srcDirs:
 
 # tar the backup folder
 for folder in srcDirs:
-    cmd = "tar czf " + os.path.join(backupRoot, folder + ".tgz") + " " + os.path.join(backupRoot, folder)
+    cmd = "tar -zcvf - " + os.path.join(backupRoot, folder) + "|openssl des3 -salt|dd of=" + os.path.join(backupRoot, folder + ".tar")
     cmd += " && rm -rf " + os.path.join(backupRoot, folder)
     os.system(cmd)
