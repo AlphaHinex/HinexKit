@@ -22,8 +22,8 @@ sed -i _bak '/export HTTP/d' ~/.bash_profile
 # and then set it
 if $use_proxy ; then
 sed -i _bak "$ a\ 
-export HTTP_PROXY=$PROXY \\
-export HTTPS_PROXY=$PROXY \\
+export HTTP_PROXY=$PROXY\\
+export HTTPS_PROXY=$PROXY\\
 " ~/.bash_profile
 fi
 
@@ -35,16 +35,16 @@ sed -i _bak '/^systemProp.http/d' ~/.gradle/gradle.properties
 # and then set it
 if $use_proxy ; then
 sed -i _bak "$ a\  
-systemProp.http.proxyHost=$PROXY_HOST \\
-systemProp.http.proxyPort=$PROXY_PORT \\
-systemProp.http.proxyUser=$PROXY_USER \\
-systemProp.http.proxyPassword=$PROXY_PWD \\
-systemProp.http.nonProxyHosts=$PROXY_NONPROXY \\
-systemProp.https.proxyHost=$PROXY_HOST \\
-systemProp.https.proxyPort=$PROXY_PORT \\
-systemProp.https.proxyUser=$PROXY_USER \\
-systemProp.https.proxyPassword=$PROXY_PWD \\
-systemProp.https.nonProxyHosts=$PROXY_NONPROXY \\
+systemProp.http.proxyHost=$PROXY_HOST\\
+systemProp.http.proxyPort=$PROXY_PORT\\
+systemProp.http.proxyUser=$PROXY_USER\\
+systemProp.http.proxyPassword=$PROXY_PWD\\
+systemProp.http.nonProxyHosts=$PROXY_NONPROXY\\
+systemProp.https.proxyHost=$PROXY_HOST\\
+systemProp.https.proxyPort=$PROXY_PORT\\
+systemProp.https.proxyUser=$PROXY_USER\\
+systemProp.https.proxyPassword=$PROXY_PWD\\
+systemProp.https.nonProxyHosts=$PROXY_NONPROXY\\
 " ~/.gradle/gradle.properties
 fi
 
@@ -83,7 +83,7 @@ sed -i _bak '/proxy=/d' ~/.npmrc
 # then set
 if $use_proxy ; then
 sed -i _bak "$ a\ 
-proxy=$PROXY \\
-https-proxy=$PROXY \\
+proxy=$PROXY\\
+https-proxy=$PROXY\\
 " ~/.npmrc
 fi
