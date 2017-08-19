@@ -17,5 +17,5 @@ puts item.enclosure.url
   end
 end
 
-download('http://since1989.org/feed/wasai', 'wasai', 1)
+download('https://since1989.org/feed/wasai', 'wasai', 50)
 # download('http://teahour.fm/feed.xml', 'teahour', 5)
